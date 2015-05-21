@@ -1,0 +1,20 @@
+<%= erb :"_header" %>
+
+<div class="container">
+
+  <img class="beer-image" src="<%= @beer["data"][0]["labels"]["medium"] %>">
+
+  <h2><%= @beer["data"][0]["name"] %></h2>
+
+  <div class="beer-meta">
+    <span class="beer-abv"><strong>abv: </strong><%= @beer["data"][0]["abv"] %>% </span>
+    <span class="beer-ibu"><strong>Ibus: </strong> <%= @beer["data"][0]["ibu"] %></span>
+  </div>
+
+
+  <div class="beer-description">
+    <p><%= @beer["data"][0]["description"] %></p>
+  </div>
+
+
+</div>

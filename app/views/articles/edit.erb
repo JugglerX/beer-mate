@@ -1,0 +1,38 @@
+<div class="container">
+  <h1>Update your Listing</h1>
+
+  <%= erb :"articles/_errors" %>
+
+  <form id="article-create" action="/articles/<%= @article.id %>" method="post">
+      <label>Enter Your Secret Key: </label>
+      <input type="text" name="secret_key">
+
+      <label>Title: </label>
+      <input type="text" name="title" value="<%= @article.title %>">
+
+      <label>Description: </label>
+      <input type="text" name="description" value="<%= @article.description %>">
+
+      <label>Price: </label>
+      <input type="text" name="price" value="<%= @article.price %>">
+
+      <label>Email: </label>
+      <input type="text" name="author_email" value="<%= @article.author_email %>">
+
+      <%= @article.category_id %>
+
+      <label>Category: </label>
+      <select name="category_id">
+        <option value="1" <%= "selected" if 1 == @article.category_id %>>Auto</option>
+        <option value="2" <%= "selected" if 2 == @article.category_id %>>Garden</option>
+        <option value="3" <%= "selected" if 3 == @article.category_id %>>Apartments</option>
+        <option value="4" <%= "selected" if 4 == @article.category_id %>>Kitchen</option>
+        <option value="5" <%= "selected" if 5 == @article.category_id %>>Restaurants</option>
+      </select>
+
+      <input type="hidden" name="id" value="<%= @article.id %>">
+
+      <input type="hidden" name="_method" value="put">
+      <input class="article-confirm-submit" type="submit" value="Update my Listing">
+  </form>
+</div>

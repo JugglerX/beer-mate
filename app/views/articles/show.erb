@@ -1,0 +1,15 @@
+
+
+<div class="container">
+  <% if @success == "true" %>
+    <div class="secret-key-message">
+      <h2>Secret Key: <%= @article.secret_key %></h2>
+    </div>
+  <% end %>
+  <h1><%= @article.id %>. <%= @article.title %></h1>
+  <h2>$<%= @article.price %>.00</h2>
+  <p><%= @article.description %></p>
+  <a href="/articles">View All Categories</a> |
+  <a href="/articles/<%= @article.id %>/edit">Edit Listing</a> |
+  <a href="mailto:<%= @article.author_email %>">Email The Owner of This Listing</a>
+</div>

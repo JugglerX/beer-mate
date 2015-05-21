@@ -1,0 +1,32 @@
+{
+    "numberOfPages": 1,
+    "currentPage": 1,
+    "totalResults": 1,
+    "data": [
+        {
+             "id": "9Jysqx",
+             "name": "Endeavour",
+             "description": "Endeavour is a double IPA. The color is
+deep amber with a light, creamy head…",
+             "abv": "8.9",
+             "ibu": "76",
+             "glasswareId": 6,
+             "availableId": 1,
+             "styleId": 31,
+             "isOrganic": "N",
+             "status": "verified",
+             "createDate": "2012-11-04 22:32:25",
+             "updateDate": "2013-0 8-13 19:29:30",
+             "labels": {
+
+                   "icon": "https://s3.amazonaws.com/brewerydbapi/
+beer/9Jysqx/upload_aViX39-icon.png",
+                   "medium": "https://s3.amazonaws.com/
+brewerydbapi/beer/9Jysqx/upload_aViX39-medium.png",
+                    "large": "https://s3.amazonaws.com/brewerydbapi/
+beer/9Jysqx/upload_aViX39-large.png"
+             },
+             …
+       }
+ ]
+}

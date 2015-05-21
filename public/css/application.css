@@ -1,0 +1,74 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Merriweather:400,300,700);
+
+body {
+  font-size: 14px;
+  font-family: "Open Sans", arial;
+  background:
+}
+
+
+.container {
+  width: 500px;
+  padding: 0px 20px 20px 20px;
+  margin: 0 auto;
+  text-align: center;
+}
+h1 {
+  font-weight: 400;
+}
+h2 {
+  font-weight: 400;
+  font-size: 36px;
+  margin: 0 0 10px 0;
+}
+.beer-image {
+  width: 200px;
+  border-radius: 100px;
+}
+.beer-meta {
+  font-size: 18px;
+  font-family: "Merriweather";
+  margin-bottom: 20px;
+}
+.beer-abv {
+  font-family:
+}
+.beer-description p {
+  font-size: 14px;
+  line-height: 23px;
+  color: #666;
+}
+
+.article-create-submit {
+  display: block;
+  margin-top: 30px;
+}
+
+#secret-key {
+  padding: 20px;
+  border: 1px solid black;
+  background-color: green;
+  color: white;
+  font-size: 24px;
+  line-height:  26px;
+  margin-bottom: 20px;
+}
+#secret-key p {
+  margin: 0;
+}
+
+.secret-key-message {
+  padding: 5px;
+  border: 1px solid black;
+  background-color: green;
+  color: white;
+  font-size: 14px;
+  line-height:  14px;
+  margin: 20px 0 20px 0;
+}
+
+input {
+  padding: 10px;
+  width: 200px;
+
+}

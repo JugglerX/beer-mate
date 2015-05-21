@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Create a new Listing</h1>
+
+  <%= erb :"articles/_errors" %>
+
+  <form id="article-create" action="/articles" method="post">
+
+      <label>Title: </label>
+      <input type="text" name="title">
+
+      <label>Description: </label>
+      <input type="text" name="description">
+
+      <label>Price: </label>
+      <input type="text" name="price">
+
+      <label>Email: </label>
+      <input type="text" name="author_email">
+
+      <label>Category: </label>
+      <select name="category_id">
+        <option value="1">Auto</option>
+        <option value="2">Garden</option>
+        <option value="3">Apartments</option>
+        <option value="4">Kitchen</option>
+        <option value="5">Restaurants</option>
+      </select>
+
+      <input class="article-create-submit" type="submit" value="Create your listing">
+    </form>
+</div>
