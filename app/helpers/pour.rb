@@ -8,13 +8,4 @@ class Pour
     # movie = JSON.parse(response.body)
 
   end
-
-
-
-# Example Usage:
-# Get a single beer
-# /beer/oeGSxs
-
-
-# beers?name=ipa
 end

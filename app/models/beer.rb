@@ -1,6 +1,4 @@
-class Beer
-  attr_accessor :name
-  def initialize
-    @name = "XXXX"
-  end
+class Beer  < ActiveRecord::Base
+  has_many :drinkers
+  has_many :users, :through => :drinkers
 end
