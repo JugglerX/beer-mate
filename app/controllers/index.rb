@@ -3,9 +3,35 @@ configure do
 end
 
 get '/' do
-  puts "******************************************************"
+  lb
   p params[:beer]
-  p @beer = Pour.search(params[:beer])
+  lb
+  # get beer from BreweryDB API
+  puts "Connecting to API and returning JSON..."
+  puts
+  @beer = Pour.lookup(params[:beer])
+  puts @beer
+
+  puts
+  puts "Brewing beer - parsing JSON into Activerecord..."
+  puts
+  @fresh_beer = Pour.brew
+  @fresh_beer.save
+
+  puts
+  puts "Serving beer - saving parsed activerecord row"
+  puts
+  p @fresh_beer
+  puts
+
+
+  # Beer.create(:title "none",
+  #   :abv "0",
+  #   :ibu "0",
+  #   :description "no description",
+  #   :image "no image",
+  #   :rating 0,
+  #   )
   if @beer.has_key?("totalResults") == false
     p "no results found"
     erb :beer_not_found
@@ -13,6 +39,7 @@ get '/' do
     p "results found"
     erb :beer
   end
+
 end
 
 
