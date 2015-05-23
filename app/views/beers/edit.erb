@@ -1,0 +1,14 @@
+<div class="container">
+<h2>Edit Beer</h2>
+  <h3><%= @beer.title %></h3>
+
+<form action="/beers/<%= @beer.id %>" method="post">
+<label>Rating: </label>
+<input type="text" name="rating" value="">
+<input type="hidden" name="_method" value="put" />
+<input type="submit" value="Add Rating">
+</form>
+
+
+</div>
+

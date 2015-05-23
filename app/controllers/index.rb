@@ -7,6 +7,7 @@ enable :sessions, :logging
 get '/' do
   p params
   p user_logged_in?
+  p session
 
   if params == {}
     p "no paramter passed"

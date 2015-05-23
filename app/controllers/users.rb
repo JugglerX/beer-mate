@@ -1,6 +1,7 @@
 post '/users' do
   # @user = User.new(id: -1)
   if(params[:login_type] == "in")
+    # need to check the password matches
     @user = User.find_by(username: params[:username])
     p @user.id
     p params
@@ -35,5 +36,13 @@ post '/logout' do
   session[:user] = nil
   redirect '/'
 end
+
+# rabies route to clear dirty sessions
+get '/clear' do
+  session[:user_id] = nil
+  redirect '/'
+end
+
+
 
 

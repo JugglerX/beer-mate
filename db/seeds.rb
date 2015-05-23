@@ -1,3 +1,11 @@
+User.create(
+  first_name: "robert",
+  last_name: "austin",
+  email: "rob@jugglerdigital.com",
+  username: "rob",
+  password: "rob"
+)
+
 10.times do
   User.create(
     first_name: Faker::Name.first_name,

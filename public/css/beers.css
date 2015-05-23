@@ -1,17 +1,20 @@
 .my-beers {
 
 }
+
 .my-beers td {
   width: 100px;
   border-bottom: 1px solid #EAEAEA;
   padding: 10px;
 }
+
 .my-beers th {
    border-bottom: 2px solid #EAEAEA;
   padding: 10px;
   background: #333;
   color: #FFF;
 }
+
 table.my-beers {
   width: 100%;
   border: 1px solid #EAEAEA;

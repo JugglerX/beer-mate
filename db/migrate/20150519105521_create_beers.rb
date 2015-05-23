@@ -6,8 +6,8 @@ class CreateBeers < ActiveRecord::Migration
       t.string :ibu
       t.string :description
       t.string :image
-      t.integer :rating
-      t.integer :total_ratings
+      t.integer :rating, :default => 0
+      t.integer :total_ratings, :default => 0
       # t.references :beers_user
       t.timestamps
     end
