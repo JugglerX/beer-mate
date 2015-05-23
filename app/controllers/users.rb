@@ -1,5 +1,5 @@
 post '/users' do
-  # @user = User.new(id: -1)
+
   if(params[:login_type] == "in")
     # need to check the password matches
     @user = User.find_by(username: params[:username])
@@ -12,7 +12,6 @@ post '/users' do
   if(params[:login_type] == "up")
     @user = User.create(username: params[:username], password: params[:password])
     p @user
-    # first_name: params[:first_name], last_name: params[:last_name], email: params[:email].downcase
     session[:user_id] = @user.id
     redirect "/users/#{@user.id}"
   end

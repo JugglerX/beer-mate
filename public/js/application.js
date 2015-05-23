@@ -4,4 +4,8 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  // $(".alert").fadeOut( "slow" );
+  // $('.alert').fadeIn(200).delay(5000).fadeOut(200).remove();
+  $(".alert").animate({opacity: 1.0}, 5000).fadeOut();
+
 });

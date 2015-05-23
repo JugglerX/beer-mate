@@ -1,19 +1,19 @@
 <div class="container center">
-  <img class="beer-image" src="<%= @beer["data"][0]["labels"]["medium"] %>">
+  <img class="beer-image" src="<%= @draft_beer.image %>">
 
-  <h2><%= @beer["data"][0]["name"] %></h2>
+  <h2><%= @draft_beer.title %></h2>
 
   <div class="beer-meta">
-    <span class="beer-abv"><strong>abv: </strong><%= @beer["data"][0]["abv"] %>% </span>
-    <span class="beer-ibu"><strong>Ibus: </strong> <%= @beer["data"][0]["ibu"] %></span>
+    <span class="beer-abv"><strong>abv: </strong><%= @draft_beer.abv %>% </span>
+    <span class="beer-ibu"><strong>Ibus: </strong> <%= @draft_beer.ibu %></span>
   </div>
 
   <div class="beer-description">
-    <p><%= @beer["data"][0]["description"] %></p>
+    <p><%= @draft_beer.description %></p>
   </div>
 
   <form id="beer-save" action="/beers" method="post" >
-    <input type="hidden" name="beer_id" value="<%= @fresh_beer.id %>" >
+    <input type="hidden" name="beer_id" value="<%= @draft_beer.id %>" >
     <input type="submit" value="Save This Beer" >
   </form>
 

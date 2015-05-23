@@ -1,21 +1,44 @@
 <div class="container">
 <h2>My Beers</h2>
+
+  <div class="message warning alert">
+    <%= params[:message] %>
+  </div>
 <table class="my-beers">
   <thead>
     <tr>
       <th>Beer Name</th>
       <th>ABV</th>
       <th>IBU</th>
+      <th>Rating</th>
+      <th>T/R</th>
+      <th></th>
       <th></th>
     </tr>
   </thead>
   <tbody>
+
   <% @beers.each do |beer| %>
-    <tr>
-      <td><%= beer.title %></td>
-      <td><%= beer.abv %>%</td>
-      <td><%= beer.ibu %></td>
-      <td><a href="/users/<%= current_user.id %>/beers/<%= beer.id %>/edit">edit</a></td>
+    <% if beer.id == params[:existing_beer].to_i %>
+      <% @active = "active" %>
+    <% end %>
+
+      <tr id="beer-id-<%= beer.id %>" class="<%= @active %>">
+        <td><%= beer.title %></td>
+        <td><%= beer.abv %>%</td>
+        <td><%= beer.ibu %></td>
+        <td><%= beer.rating %></td>
+        <td><%= beer.total_ratings %></td>
+        <td>
+          <a href="/users/<%= current_user.id %>/beers/<%= beer.id %>/edit">edit</a> |
+          <a href="/users/<%= current_user.id %>/beers/<%= beer.id %>/remove">remove</a>
+        </td>
+        <td>
+          <form action="/users/<%= current_user.id %>/beers/<%= beer.id %>/remove" method="post">
+          <input type="hidden" name="_method" value="put" />
+          <input type="submit" value="Remove">
+          </form>
+        </td>
     </tr>
   <% end %>
 </tbody>

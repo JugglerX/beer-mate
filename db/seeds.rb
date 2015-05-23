@@ -6,6 +6,14 @@ User.create(
   password: "rob"
 )
 
+User.create(
+  first_name: "kelvin",
+  last_name: "ambusudo",
+  email: "sherif@jugglerdigital.com",
+  username: "sherif",
+  password: "sherif"
+)
+
 10.times do
   User.create(
     first_name: Faker::Name.first_name,
