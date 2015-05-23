@@ -10,10 +10,12 @@
   <!--
     application.css is where you put your styles
   -->
-  <link rel="stylesheet" href="/css/application.css">
-   <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/application.css">
+    <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/beers.css">
     <link rel="stylesheet" href="/css/error.css">
+    <link rel="stylesheet" href="/css/clearfix.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
@@ -21,7 +23,7 @@
   <title></title>
 </head>
 <body>
-
+  <%= erb :"_header" %>
   <%= yield %>
 </body>
 </html>

@@ -1,0 +1,19 @@
+<% if user_logged_in? %>
+<div class="user-profile">
+  Yo <span class="user-profile-username">"<%= current_user.username %>"</span>  You Thirsty Bro? |
+   <a href="/users/<%= current_user.id %>/beers">My Beers</a> |
+  <a href="/users/<%= current_user.id %>">My Profile</a> |
+  <form class="form-logout" action="/logout" method="post">
+    <input type="submit" value="Logout">
+  </form>
+</div>
+<% end %>
+
+<% if user_logged_in? == false %>
+
+<div class="user-profile">
+  <a href="/users/new">Create Account</a> |
+  <a href="/users/login">Login</a>
+</div>
+
+<% end %>

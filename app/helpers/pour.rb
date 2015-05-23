@@ -1,7 +1,6 @@
 class Pour
   require 'httparty'
 
-
   def self.lookup(query)
     response = HTTParty.get("http://api.brewerydb.com/v2/beers?name=#{query}&key=36740918b2332efb1b7dd18ed5adc58f")
     @parsed = JSON.parse(response.body)

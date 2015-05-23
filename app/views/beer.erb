@@ -1,7 +1,4 @@
-<%= erb :"_header" %>
-
-<div class="container">
-
+<div class="container center">
   <img class="beer-image" src="<%= @beer["data"][0]["labels"]["medium"] %>">
 
   <h2><%= @beer["data"][0]["name"] %></h2>
@@ -11,10 +8,14 @@
     <span class="beer-ibu"><strong>Ibus: </strong> <%= @beer["data"][0]["ibu"] %></span>
   </div>
 
-
   <div class="beer-description">
     <p><%= @beer["data"][0]["description"] %></p>
   </div>
 
+  <form id="beer-save" action="/beers" method="post" >
+    <input type="hidden" name="beer_id" value="<%= @fresh_beer.id %>" >
+    <input type="submit" value="Save This Beer" >
+  </form>
 
 </div>
+

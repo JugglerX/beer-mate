@@ -17,6 +17,8 @@ gem 'activerecord', '~>4.1'
 gem 'rake'
 
 gem 'shotgun'
+gem 'bcrypt'
+gem 'avatar'
 
 group :beer do
   gem 'httparty'

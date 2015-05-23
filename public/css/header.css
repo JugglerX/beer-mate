@@ -1,6 +1,6 @@
 .header {
   width: 100%;
-  padding: 14px;
+  padding: 14px 0 14px 0;
   box-shadow: 1px 1px 4px #EAEAEA;
   background: #FFCC00;
   margin-bottom: 20px;
@@ -17,4 +17,36 @@
   margin-right: 10px;
   font-weight: 700;
   text-transform: uppercase;
+  text-decoration: none;
+}
+
+.user-profile {
+  float: right;
+  color: #FFF;
+  line-height: 38px;
+}
+.user-profile a {
+  color: #FFF;
+}
+
+.user-profile-username {
+  font-weight: 700;
+}
+.form-logout {
+  display: inline-block;
+}
+.form-logout input {
+  background: none;
+  webkit-appearance: none;
+  padding: 0;
+  width: auto;
+  border: none;
+  outline: none;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: underline;
+}
+
+#beer-search {
+  float: left;
 }
