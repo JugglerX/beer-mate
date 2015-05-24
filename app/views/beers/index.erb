@@ -1,9 +1,12 @@
 <div class="container">
 <h2>My Beers</h2>
 
-  <div class="message warning alert">
+  <% if params[:message] != "" %>
+  <div class="message warning alert" style='display:none'>
     <%= params[:message] %>
   </div>
+  <% end %>
+
 <table class="my-beers">
   <thead>
     <tr>
@@ -12,7 +15,6 @@
       <th>IBU</th>
       <th>Rating</th>
       <th>T/R</th>
-      <th></th>
       <th></th>
     </tr>
   </thead>
@@ -30,13 +32,10 @@
         <td><%= beer.rating %></td>
         <td><%= beer.total_ratings %></td>
         <td>
-          <a href="/users/<%= current_user.id %>/beers/<%= beer.id %>/edit">edit</a> |
-          <a href="/users/<%= current_user.id %>/beers/<%= beer.id %>/remove">remove</a>
-        </td>
-        <td>
-          <form action="/users/<%= current_user.id %>/beers/<%= beer.id %>/remove" method="post">
+          <a href="/users/<%= current_user.id %>/beers/<%= beer.id %>/edit">Edit</a> |
+           <form class="inline-form" action="/users/<%= current_user.id %>/beers/<%= beer.id %>/remove" method="post">
           <input type="hidden" name="_method" value="put" />
-          <input type="submit" value="Remove">
+          <input class="link" type="submit" value="Remove">
           </form>
         </td>
     </tr>

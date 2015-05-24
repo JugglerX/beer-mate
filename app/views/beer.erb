@@ -14,8 +14,9 @@
 
   <form id="beer-save" action="/beers" method="post" >
     <input type="hidden" name="beer_id" value="<%= @draft_beer.id %>" >
-    <input type="submit" value="Save This Beer" >
+    <input class="button" type="submit" value="Save to My Beers" >
   </form>
+  <p><em>This is a <strong><%= @served_from %></strong> beer</em></p>
 
 </div>
 
