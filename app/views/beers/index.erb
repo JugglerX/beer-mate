@@ -1,7 +1,8 @@
 <div class="container">
 <h2>My Beers</h2>
 
-  <% if params[:message] != "" %>
+  <% if params[:message] != "" || params[:message] == nil %>
+  <% p params %>
   <div class="message warning alert" style='display:none'>
     <%= params[:message] %>
   </div>

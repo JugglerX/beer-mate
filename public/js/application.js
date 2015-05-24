@@ -9,4 +9,7 @@ $(document).ready(function() {
   // $(".alert").animate({opacity: 1.0}, 5000).fadeOut();
   $('.alert').fadeIn(400).delay(2500).fadeOut(400); //fade out after 3 seconds
 
+  // $('.trigger').click(function(){
+  //   $(this).parent().parent().next("form").submit();
+  // });
 });

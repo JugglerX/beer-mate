@@ -17,15 +17,14 @@ class Beer  < ActiveRecord::Base
     if beer.total_ratings == 0
       @new_rating = user_beer_rating
     else
-      @new_rating = beer.rating.to_i / user_beer_rating.to_i
+      @new_rating = (beer.rating.to_i * beer.total_ratings + user_beer_rating.to_i) / (beer.total_ratings + 1)
     end
-
-    @new_rating
+    p @new_rating
     @total_ratings = beer.total_ratings
     @total_ratings += 1
-    beer.update(rating: @new_rating.to_i)
-    beer.update(total_ratings: @total_ratings.to_i )
-    beer.save
+    beer.update(rating: @new_rating.to_i, total_ratings: @total_ratings.to_i )
+    # beer.save
+    puts "**********************************************************"
     p "beer saved"
     p beer
 
