@@ -20,6 +20,8 @@ gem 'shotgun'
 gem 'bcrypt'
 gem 'avatar'
 
+
+
 group :beer do
   gem 'httparty'
   gem 'json'
@@ -28,4 +30,7 @@ end
 group :test do
   gem 'faker'
   gem 'rspec'
+  gem 'shoulda-matchers'
+  gem 'rack-test'
+  gem 'capybara'
 end

@@ -37,6 +37,7 @@ post '/' do
   puts "Brewing beer - parsing JSON into Activerecord row or retreiving beer locally from Activerecord..."
   puts
   @draft_beer = Pour.brew
+  p @draft_beer.id
   p @draft_beer
 
   # tells us if the Beer had already been saved in the database or it's a fresh creation from the API

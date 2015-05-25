@@ -36,6 +36,7 @@ end
 
 get '/users/:id' do
   p session
+  p current_user
   erb :"users/show"
 end
 
