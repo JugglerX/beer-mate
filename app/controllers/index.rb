@@ -48,6 +48,9 @@ post '/' do
   erb :beer
 end
 
+get '/about' do
+  erb :about
+end
 
 
 

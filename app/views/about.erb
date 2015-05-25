@@ -1,0 +1,84 @@
+<div class="container">
+
+  <h2>About My App</h2>
+  <p>I just wanted to create a simple app that looked up some kind of beer database and allowed me to store beers and rate them. I wanted to make sure I implemented all key curriculum from the week</p>
+
+  <h3>Connects to the Brewery DB API to lookup beers</h3>
+  <p>I researched several beer databases and API's. This particular industry has lot's of bad and beta API's so I tried to rapidly evaluate and test a shortlist of API's without wasting to much time.</p>
+  <p>I really wanted to use the <a href="https://untappd.com/api/register">Untapped API</a> because it has a great database of user ratings. Unfortunately their API is not public and so I opted to use Brewery DB instead. Brewery DB does not have user beer ratings, only beers, so I needed to factor that into my project.</p>
+
+  <ul>
+    <li>I used HTTparty to connect to breweryDB and quickly verified I could use the API on my project.</li>
+    <li>I had a problem with spaces in my URL call. Spaces caused a bad URI error. So I used gsub to clean up the URL and it worked!</li>
+    <li>I parsed the HTTParty response using JSON.parse and this removed some of the extreanous information in the JSON packet and just returned the main data, which made working with the data easier to traverse</li>
+  </ul>
+
+  <h3>Stores Beers as Activerecord Objects</h3>
+  <ul>
+    <li>When a user looks up a beer using Brewery DB API I parse the JSON object and turn that into a Beer Activerecord entry. </li>
+    <li>If a user searches for a beer that has been looked up before it will use the local activerecord object instead of the API. It also provides feedback on if the object is coming from activerecord or the API in the foor of "this is a local beer" or "this beer is imported".</li>
+  </ul>
+
+  <h3>Users can add beers to their favourites list</h3>
+  <ul>
+  <li>After a user searches for and finds a beer, they may save that beer to their favourites list.</li>
+  <li>Saving a beer creates a relationship between the user_id and beer_id in the Drinkers join table.</li>
+  <li>Saving a beer to a users list does not create duplicate beer objects</li>
+  <li>If a user tries to save a beer which is already in their favourites list it will prevent the beer from being added twice and it will alert the user with a message, visually highlight the existing beer on the webpage.</li>
+</ul>
+
+<h3>Users can rate beers and remove beers from their favourites list</h3>
+<ul>
+  <li>Users can rate beers, this uses .update</li>
+  <li>Currently my rating system is very low tech. Beers have a rating, and total_ratings. I wrote a very basic algorithim to update the beer rating each time a user rates a beer. Unfortuntaly the individuals own rating is not stored anywhere. I would like to improve this. I think I will 2 new tables. Ratings and a join Table RatingsUsers.</li>
+  <li>Users can remove beers from their favourites list. This does not delete the beer object. It simply destroys the associtation in the Drinkers join table.</li>
+</ul>
+
+<h3>User Authentication</h3>
+<ul>
+  <li>I believe I have implemented all the key features of typical user authentication.</li>
+  <li>User Table, Model, Routes and ERB's</li>
+  <li>My Profile area, Sign up area, Login page, Logout button</li>
+  <li>Used the current_user helper for better sessions</li>
+</ul>
+
+<h3>Routes & Structure</h3>
+<ul>
+  <li>Mostly restful routes?</li>
+  <li>Attempted to use semantic naming and structure for controllers and views folders</li>
+  <li>Appropriate use of partials</li>
+</ul>
+
+<h3>HTML / CSS</h3>
+<ul>
+  <li>Clean, minimal interface design</li>
+  <li>Semantic Markup</li>
+  <li>Seperation of CSS files into components</li>
+  <li>use of component classes for messages and buttons rather than context</li>
+</ul>
+
+
+<h2>To-DO</h2>
+<ul>
+  <li>Rspec and tests</li>
+  <li>validation on database fields</li>
+  <li>Add improved rating system, expand database schema to accommodate</li>
+  <li>Add breweries table and relationship to beers</li>
+</ul>
+
+<h2>Bugs</h2>
+<ul>
+  <li>empty message overlay appears on my beers list when no message exists</li>
+</ul>
+
+<div class="gallery">
+    <a href="/images/photo-schema.jpg"><img src="/images/photo-schema.jpg"></a>
+    <a href="/images/photo-wireframe1.jpg"><img src="/images/photo-wireframe1.jpg"></a>
+    <a href="/images/photo-wireframe2.jpg"><img src="/images/photo-wireframe2.jpg"></a>
+  </div>
+
+
+
+
+</div>
+

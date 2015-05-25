@@ -24,6 +24,8 @@
   <% @beers.each do |beer| %>
     <% if beer.id == params[:existing_beer].to_i %>
       <% @active = "active" %>
+    <% else %>
+      <% @active ="" %>
     <% end %>
 
       <tr id="beer-id-<%= beer.id %>" class="<%= @active %>">

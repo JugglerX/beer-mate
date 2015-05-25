@@ -1,5 +1,5 @@
 get '/users/:id/beers' do
-  @beers = User.find_by(id: params[:id]).beers
+  @beers = User.find_by(id: params[:id]).beers.order('rating DESC')
   p @beers
   erb :"beers/index"
 end

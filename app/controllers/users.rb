@@ -3,14 +3,23 @@ post '/users' do
   if(params[:login_type] == "in")
     # need to check the password matches
     @user = User.find_by(username: params[:username])
-    p @user.id
-    p params
     session[:user_id] = @user.id
-    redirect "/users/#{session[:user_id]}"
+    p params[:username]
+    p params[:password_hash]
+    puts
+    p @user.username
+    p @user.password
+    if @user.password == params[:password]
+      puts "user login success"
+      redirect "/users/#{session[:user_id]}"
+    else
+      puts "user login password failed"
+      redirect "/"
+    end
   end
 
   if(params[:login_type] == "up")
-    @user = User.create(username: params[:username], password: params[:password])
+    @user = User.create(username: params[:username], password: params[:password_hash])
     p @user
     session[:user_id] = @user.id
     redirect "/users/#{@user.id}"
@@ -32,7 +41,9 @@ end
 
 
 post '/logout' do
-  session[:user] = nil
+  p session
+  session[:user_id] = nil
+  p session
   redirect '/'
 end
 

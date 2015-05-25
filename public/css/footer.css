@@ -1,0 +1,13 @@
+.footer {
+  width: 100%;
+  padding: 14px 0 14px 0;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+.footer-inner {
+  width: 960px;
+  margin: 0 auto;
+}
+.footer-inner a {
+  color: #999;
+}

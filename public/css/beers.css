@@ -1,5 +1,25 @@
-.my-beers {
+/* Beer Search & Result */
+.beer-image {
+  width: 200px;
+  border-radius: 100px;
+}
+.beer-meta {
+  font-size: 18px;
+  font-family: "Merriweather";
+  margin-bottom: 20px;
+}
+.beer-abv {
+  font-family:
+}
+.beer-description p {
+  font-size: 14px;
+  line-height: 23px;
+  color: #666;
+}
 
+
+/* My Beers List */
+.my-beers {
 }
 
 .my-beers td {

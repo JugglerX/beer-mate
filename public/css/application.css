@@ -28,51 +28,7 @@ h2 {
 a {
   color: #FFCC00;
 }
-.beer-image {
-  width: 200px;
-  border-radius: 100px;
-}
-.beer-meta {
-  font-size: 18px;
-  font-family: "Merriweather";
-  margin-bottom: 20px;
-}
-.beer-abv {
-  font-family:
-}
-.beer-description p {
-  font-size: 14px;
-  line-height: 23px;
-  color: #666;
-}
 
-.article-create-submit {
-  display: block;
-  margin-top: 30px;
-}
-
-#secret-key {
-  padding: 20px;
-  border: 1px solid black;
-  background-color: green;
-  color: white;
-  font-size: 24px;
-  line-height:  26px;
-  margin-bottom: 20px;
-}
-#secret-key p {
-  margin: 0;
-}
-
-.secret-key-message {
-  padding: 5px;
-  border: 1px solid black;
-  background-color: green;
-  color: white;
-  font-size: 14px;
-  line-height:  14px;
-  margin: 20px 0 20px 0;
-}
 
 /* Login */
 #login_form {
@@ -91,6 +47,7 @@ input {
   width: 200px;
 }
 
+/* Homepage */
 .shoutout {
   width: 500px;
   margin: 0 auto;
@@ -121,6 +78,7 @@ input {
   vertical-align: middle;
 }
 
+/* Buttons */
 input.button {
   background: #333;;
   border-radius: 2px;
@@ -150,5 +108,22 @@ input.link {
 
 .active {
   background: #efefef;
+}
+
+.gallery img {
+  width: 300px;
+  float: left;
+  margin-left: 10px;
+}
+label {
+  display: block;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+.block {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
 }
 

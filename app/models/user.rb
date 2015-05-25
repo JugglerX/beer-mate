@@ -8,7 +8,7 @@ class User  < ActiveRecord::Base
   has_many :drinkers
   has_many :beers, :through => :drinkers
 
-   def password
+  def password
     @password ||= Password.new(password_hash)
   end
 
