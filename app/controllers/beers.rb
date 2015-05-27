@@ -1,10 +1,14 @@
+# Beer Favourites List "My Beers"
 get '/users/:id/beers' do
   @beers = User.find_by(id: params[:id]).beers
-  # .order('rating DESC')
+  @user_ratings = User.find_by(id: params[:id]).ratings
   p @beers
+  p @ratings
   erb :"beers/index"
 end
 
+
+# Add Rating Form
 get '/users/:user_id/beers/:beer_id/edit' do
   p params
   p @beer = Beer.find(params[:beer_id])
@@ -12,51 +16,40 @@ get '/users/:user_id/beers/:beer_id/edit' do
 end
 
 
+# Add beer to users favourites
 post '/beers' do
-  puts
-  # p session
-  # p params[:beer_id]
-  # p current_user.id
-
-  # when saving the beer to the users favourites list we need to check if they have already favourited the beer before we create a new association. if the have already favourited that beer, we should still redirect them to the "my beers" list but not save a duplicate beer and display a message "you've already saved that beer, don't you remember?"
-
-  if Beer.find_by(id: params[:beer_id]).users.find_by(id: current_user.id) == nil
-    p "the beer is not in the users favourite list, so let's add the Drinker table association"
-    Drinker.create(beer_id: params[:beer_id], user_id: current_user.id)
-    # beer = Beer.find_by(id: params[:beer_id])
-    # current_user.beers << beer
-
+  beer = Beer.find(params[:beer_id])
+  unless current_user.beers.include? beer
+    logger.info "the beer is not in the users favourite list"
+    current_user.beers << beer
   else
-    p "the beer is already in the users favourite list"
+    logger.info "the beer is already in the users favourite list"
     @message = "That beer is already in your favourites list you dickhead"
   end
-
   redirect "/users/#{current_user.id}/beers?existing_beer=#{params[:beer_id]}&message=#{@message}"
 end
 
+
+# Add rating
 put '/beers/:beer_id' do
-  p params
-  p params[:rating]
-  # take the rating and run the rating method
-  # beer = Beer.rate_beer(params[:rating], params[:beer_id])
-  rating = Rating.create(rating: params[:rating])
-  rating.save
-  p rating.id
-  @beer_to_rate = Drinker.where(beer_id: params[:beer_id], user_id: current_user.id)
-  p @beer_to_rate
-  @beer_to_rate[0].update(rating_id: rating.id)
+
+  @beer = Beer.where(id: params[:beer_id]).first
+
+  @rating = @beer.ratings.where(user_id: current_user.id).first_or_create.update(rating: params[:rating], user_id: current_user.id)
+
   @message = "Rating added"
   redirect "/users/#{current_user.id}/beers?existing_beer=#{params[:beer_id]}&message=#{@message}"
 end
 
+# Remove beer from user favourites
 put '/users/:user_id/beers/:beer_id/remove' do
-  p params
-  p params[:rating]
-  # Only remove the beer from the users list, do not delete from the database or other users lists.
-  @beer_to_remove = Drinker.where(beer_id: params[:beer_id]).find_by(user_id: params[:user_id])
-  p @beer_to_remove
-  @beer_to_remove.delete
+
+  Drinker.where(beer_id: params[:beer_id]).find_by(user_id: params[:user_id]).delete
+
   @message = "Shit beer removed"
   redirect "/users/#{current_user.id}/beers?existing_beer=#{params[:beer_id]}&message=#{@message}"
 end
+
+private
+
 

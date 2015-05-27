@@ -1,5 +1,6 @@
 class Drinker < ActiveRecord::Base
+
   belongs_to :beer
   belongs_to :user
-  belongs_to :rating
+
 end
