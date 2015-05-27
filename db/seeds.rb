@@ -29,9 +29,9 @@ end
     abv: Faker::Number.digit,
     ibu: Faker::Number.digit,
     description: Faker::Lorem.paragraph(2),
-    image: Faker::Company.logo,
-    rating: Faker::Number.digit,
-    total_ratings: Faker::Number.digit
+    image: Faker::Company.logo
+    # rating: Faker::Number.digit,
+    # total_ratings: Faker::Number.digit
   )
 end
 

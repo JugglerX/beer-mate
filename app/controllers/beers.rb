@@ -1,5 +1,6 @@
 get '/users/:id/beers' do
-  @beers = User.find_by(id: params[:id]).beers.order('rating DESC')
+  @beers = User.find_by(id: params[:id]).beers
+  # .order('rating DESC')
   p @beers
   erb :"beers/index"
 end
@@ -22,6 +23,9 @@ post '/beers' do
   if Beer.find_by(id: params[:beer_id]).users.find_by(id: current_user.id) == nil
     p "the beer is not in the users favourite list, so let's add the Drinker table association"
     Drinker.create(beer_id: params[:beer_id], user_id: current_user.id)
+    # beer = Beer.find_by(id: params[:beer_id])
+    # current_user.beers << beer
+
   else
     p "the beer is already in the users favourite list"
     @message = "That beer is already in your favourites list you dickhead"
@@ -34,8 +38,13 @@ put '/beers/:beer_id' do
   p params
   p params[:rating]
   # take the rating and run the rating method
-  beer = Beer.rate_beer(params[:rating], params[:beer_id])
-  p beer
+  # beer = Beer.rate_beer(params[:rating], params[:beer_id])
+  rating = Rating.create(rating: params[:rating])
+  rating.save
+  p rating.id
+  @beer_to_rate = Drinker.where(beer_id: params[:beer_id], user_id: current_user.id)
+  p @beer_to_rate
+  @beer_to_rate[0].update(rating_id: rating.id)
   @message = "Rating added"
   redirect "/users/#{current_user.id}/beers?existing_beer=#{params[:beer_id]}&message=#{@message}"
 end

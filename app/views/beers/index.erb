@@ -32,8 +32,8 @@
         <td><%= beer.title %></td>
         <td><%= beer.abv %>%</td>
         <td><%= beer.ibu %></td>
-        <td><%= beer.rating %></td>
-        <td><%= beer.total_ratings %></td>
+        <td>{beer rating}</td>
+        <td>{total_ratings</td>
         <td>
           <a href="/users/<%= current_user.id %>/beers/<%= beer.id %>/edit">Edit</a> |
            <form class="inline-form" action="/users/<%= current_user.id %>/beers/<%= beer.id %>/remove" method="post">

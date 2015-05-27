@@ -7,6 +7,7 @@ class User  < ActiveRecord::Base
 
   has_many :drinkers
   has_many :beers, :through => :drinkers
+  has_many :ratings, :through => :drinkers
 
   # validates :username, presence: true
 

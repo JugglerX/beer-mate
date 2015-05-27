@@ -3,7 +3,11 @@ post '/users' do
   if(params[:login_type] == "in")
     # need to check the password matches
     @user = User.find_by(username: params[:username])
-    session[:user_id] = @user.id
+    if @user
+      session[:user_id] = @user.id
+    else
+      redirect "/login"
+    end
     p params[:username]
     p params[:password_hash]
     puts
