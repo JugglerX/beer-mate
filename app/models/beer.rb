@@ -26,7 +26,11 @@ class Beer  < ActiveRecord::Base
     count = beer.ratings.count()
 
     sum == 0 ? 0 : (sum / count)
+  end
 
+  def total_ratings
+    beer = Beer.find(self.id)
+    beer.ratings.count()
   end
 
 end

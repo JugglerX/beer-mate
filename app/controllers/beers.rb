@@ -1,4 +1,4 @@
-# Beer Favourites List "My Beers"
+# Beer favourites list "My Beers"
 get '/users/:id/beers' do
   @beers = User.find_by(id: params[:id]).beers
   @user_ratings = User.find_by(id: params[:id]).ratings
@@ -8,7 +8,7 @@ get '/users/:id/beers' do
 end
 
 
-# Add Rating Form
+# Rating Form
 get '/users/:user_id/beers/:beer_id/edit' do
   p params
   p @beer = Beer.find(params[:beer_id])

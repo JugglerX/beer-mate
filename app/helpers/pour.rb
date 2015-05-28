@@ -26,6 +26,4 @@ class Pour
       )
     end
   end
-
-
 end

@@ -15,7 +15,7 @@
         <th>ABV</th>
         <th>IBU</th>
         <th>Your Rating</th>
-        <th>Total Beer Rating</th>
+        <th>Global Beer Rating</th>
         <th></th>
       </tr>
     </thead>
@@ -38,7 +38,7 @@
             <% end %>
           </td>
           <td>
-              <%= beer.rate_beer %>
+              <%= beer.rate_beer %> <em>(<%= beer.total_ratings %> ratings)</em>
           </td>
           <td>
             <form class="inline-form" action="/beers/<%= beer.id %>" method="post">
@@ -50,12 +50,12 @@
                 <option value="5">5</option>
               </select>
               <input type="hidden" name="_method" value="put" />
-              <input class="link" type="submit" value="Edit Rating">
+              <input class="link" type="submit" value="Rate Beer">
             </form>
             |
             <form class="inline-form" action="/users/<%= current_user.id %>/beers/<%= beer.id %>/remove" method="post">
             <input type="hidden" name="_method" value="put" />
-            <input class="link" type="submit" value="Remove">
+            <input class="link" type="submit" value="Remove Beer">
             </form>
           </td>
       </tr>
