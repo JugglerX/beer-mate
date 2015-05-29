@@ -21,16 +21,17 @@ end
 
 describe 'Pour' do
   it 'should lookup a beer by name via the Brewery DB API and return a JSON package that includes that name' do
-    p beer = Pour.lookup("Endeavour")
-    p beer = beer["data"][0]["name"]
     expect(beer).to eq("Endeavour")
   end
 
   it 'should turn the JSON package into a Beer object in Activerecord' do
     beer = Pour.lookup("Endeavour")
     draft_beer = Pour.brew
-    p draft_beer
-    p draft_beer[:id]
     expect(Beer.find(draft_beer[:id])).to be true
   end
+end
+
+
+describe 'Drinker' do
+  it { should belong_to(:user) }
 end

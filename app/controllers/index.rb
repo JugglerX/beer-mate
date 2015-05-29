@@ -18,6 +18,7 @@ post '/' do
   # Get beer from BreweryDB API
   logger.info "Connecting to API and returning JSON..."
   @beer = Pour.lookup(params[:beer])
+  # p @beer
 
   # Check to see if we get results from the API
   if @beer.has_key?("totalResults") == false
@@ -28,10 +29,11 @@ post '/' do
   # Parse the JSON packet into Activerecord as a Beer object
   logger.info "Brewing beer - parsing JSON into Activerecord row or retreiving beer locally from Activerecord..."
   @draft_beer = Pour.brew
-  p @draft_beer
+  # the draft beer is now an array of active record objects ready for distribution to the people
+  # p @draft_beer
 
   # Checks if the Beer had already been saved in the database and gives us a flag: "local" or "imported"
-  @served_from = Pour.served_from
+  # @served_from = Pour.served_from
 
   erb :beer
 end

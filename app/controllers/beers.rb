@@ -15,7 +15,6 @@ get '/users/:user_id/beers/:beer_id/edit' do
   erb :"beers/edit"
 end
 
-
 # Add beer to users favourites
 post '/beers' do
   beer = Beer.find(params[:beer_id])

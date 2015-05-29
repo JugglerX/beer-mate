@@ -33,4 +33,7 @@ class Beer  < ActiveRecord::Base
     beer.ratings.count()
   end
 
+  # def image=(new_image)
+  #   self.image ||= "/images/arnie.png"
+  # end
 end
