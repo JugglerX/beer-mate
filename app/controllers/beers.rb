@@ -36,8 +36,9 @@ put '/beers/:beer_id' do
 
   @rating = @beer.ratings.where(user_id: current_user.id).first_or_create.update(rating: params[:rating], user_id: current_user.id)
 
-  @message = "Rating added"
-  redirect "/users/#{current_user.id}/beers?existing_beer=#{params[:beer_id]}&message=#{@message}"
+  { rating_user: params[:rating], rating_global: @beer.rate_beer, rating_count: @beer.total_ratings }.to_json
+  # @message = "Rating added"
+  # redirect "/users/#{current_user.id}/beers?existing_beer=#{params[:beer_id]}&message=#{@message}"
 end
 
 # Remove beer from user favourites

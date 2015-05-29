@@ -8,6 +8,7 @@
   </div>
   <% end %>
 
+
   <table class="my-beers">
     <thead>
       <tr>
@@ -29,19 +30,20 @@
       <% end %>
 
         <tr id="beer-id-<%= beer.id %>" class="<%= @active %>">
-          <td><%= beer.title %></td>
-          <td><%= beer.abv %>%</td>
-          <td><%= beer.ibu %></td>
-          <td>
+          <td class="beer-title"><%= beer.title %></td>
+          <td class="beer-abv"><%= beer.abv %>%</td>
+          <td class="beer-ibu"><%= beer.ibu %></td>
+          <td class="beer-rating-user">
             <% if @user_ratings.find_by(beer_id: beer.id) != nil %>
               <%= @user_ratings.find_by(beer_id: beer.id).rating %>
             <% end %>
           </td>
-          <td>
-              <%= beer.rate_beer %> <em>(<%= beer.total_ratings %> ratings)</em>
+          <td class="beer-rating-global">
+              <span><%= beer.rate_beer %></span>
+              <em>(<span><%= beer.total_ratings %></span> ratings)</em>
           </td>
           <td>
-            <form class="inline-form" action="/beers/<%= beer.id %>" method="post">
+            <form class="inline-form form-rate-beer" action="/beers/<%= beer.id %>" method="post">
               <select name="rating" >
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -53,7 +55,7 @@
               <input class="link" type="submit" value="Rate Beer">
             </form>
             |
-            <form class="inline-form" action="/users/<%= current_user.id %>/beers/<%= beer.id %>/remove" method="post">
+            <form id="form-remove-beer" class="inline-form" action="/users/<%= current_user.id %>/beers/<%= beer.id %>/remove" method="post">
             <input type="hidden" name="_method" value="put" />
             <input class="link" type="submit" value="Remove Beer">
             </form>
