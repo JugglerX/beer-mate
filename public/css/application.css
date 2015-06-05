@@ -78,30 +78,6 @@ input {
   vertical-align: middle;
 }
 
-/* Buttons */
-input.button {
-  background: #333;;
-  border-radius: 2px;
-  color: #FFF;
-  border: none;
-  outline: none;
-}
-input.button:hover {
-  background: #000;
-}
-
-input.link {
-  background: none;
-  webkit-appearance: none;
-  padding: 0;
-  color: #FFCC00;
-  width: auto;
-  border: none;
-  outline: none;
-  display: inline-block;
-  text-decoration: underline;
-}
-
 .inline-form {
   display: inline-block;
 }
