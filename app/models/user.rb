@@ -8,6 +8,9 @@ class User  < ActiveRecord::Base
   has_many :drinkers
   has_many :beers, :through => :drinkers
 
+  has_many :ratings
+
+
   # validates :username, presence: true
 
   def password
@@ -18,4 +21,5 @@ class User  < ActiveRecord::Base
     @password = Password.create(new_password)
     self.password_hash = @password
   end
+
 end

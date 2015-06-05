@@ -8,45 +8,60 @@
   </div>
   <% end %>
 
-<table class="my-beers">
-  <thead>
-    <tr>
-      <th>Beer Name</th>
-      <th>ABV</th>
-      <th>IBU</th>
-      <th>Rating</th>
-      <th>T/R</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
 
-  <% @beers.each do |beer| %>
-    <% if beer.id == params[:existing_beer].to_i %>
-      <% @active = "active" %>
-    <% else %>
-      <% @active ="" %>
+  <table class="my-beers">
+    <thead>
+      <tr>
+        <th>Beer Name</th>
+        <th>ABV</th>
+        <th>IBU</th>
+        <th>Your Rating</th>
+        <th>Global Beer Rating</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+
+    <% @beers.each do |beer| %>
+      <% if beer.id == params[:existing_beer].to_i %>
+        <% @active = "active" %>
+      <% else %>
+        <% @active ="" %>
+      <% end %>
+
+        <tr id="beer-id-<%= beer.id %>" class="<%= @active %>">
+          <td class="beer-title"><%= beer.title %></td>
+          <td class="beer-abv"><%= beer.abv %>%</td>
+          <td class="beer-ibu"><%= beer.ibu %></td>
+          <td class="beer-rating-user">
+            <% if @user_ratings.find_by(beer_id: beer.id) != nil %>
+              <%= @user_ratings.find_by(beer_id: beer.id).rating %>
+            <% end %>
+          </td>
+          <td class="beer-rating-global">
+              <span><%= beer.rate_beer %></span>
+              <em>(<span><%= beer.total_ratings %></span> ratings)</em>
+          </td>
+          <td>
+            <form class="inline-form form-rate-beer" action="/beers/<%= beer.id %>" method="post">
+              <select name="rating" >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+              <input type="hidden" name="_method" value="put" />
+              <input class="link" type="submit" value="Rate Beer">
+            </form>
+            |
+            <form id="form-remove-beer" class="inline-form" action="/users/<%= current_user.id %>/beers/<%= beer.id %>/remove" method="post">
+            <input type="hidden" name="_method" value="put" />
+            <input class="link" type="submit" value="Remove Beer">
+            </form>
+          </td>
+      </tr>
     <% end %>
-
-      <tr id="beer-id-<%= beer.id %>" class="<%= @active %>">
-        <td><%= beer.title %></td>
-        <td><%= beer.abv %>%</td>
-        <td><%= beer.ibu %></td>
-        <td><%= beer.rating %></td>
-        <td><%= beer.total_ratings %></td>
-        <td>
-          <a href="/users/<%= current_user.id %>/beers/<%= beer.id %>/edit">Edit</a> |
-           <form class="inline-form" action="/users/<%= current_user.id %>/beers/<%= beer.id %>/remove" method="post">
-          <input type="hidden" name="_method" value="put" />
-          <input class="link" type="submit" value="Remove">
-          </form>
-        </td>
-    </tr>
-  <% end %>
-</tbody>
-</table>
-
-
-
+  </tbody>
+  </table>
 </div>
-
