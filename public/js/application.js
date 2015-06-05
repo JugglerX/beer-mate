@@ -3,13 +3,13 @@ $(document).ready(function() {
   $('.alert').fadeIn(400).delay(2500).fadeOut(400); //fade out after 3 seconds
 
   // Ajax Rating Button
-  $(".form-rate-beer").on("click", "input[type='submit']", function(event) {
+  $(".my-beers").on("click", "input[type='submit']", function(event) {
     event.preventDefault();
     console.log(this)
 
     $('.message').addClass("preloader")
-    $('.message').text("Calculating Global Beer Rating...")
-    $('.alert').fadeIn(400).delay(2500).fadeOut(400);
+    $('.message').text("Calculating Global Beer Rating")
+    $('.message').fadeIn(400).delay(2500).fadeOut(400);
 
     form = $(this).parent()
     url = $(this).parent().attr("action")

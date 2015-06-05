@@ -1,1 +1,8 @@
-^~undefined
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Merriweather:400,300,700|Roboto+Slab:400,300,100);
+body {
+  font-size: 14px;
+  font-family: "Open Sans", arial;
+}
+.header {
+  background: red;
+}
