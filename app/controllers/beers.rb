@@ -18,6 +18,9 @@ end
 # Add beer to users favourites
 post '/beers' do
   beer = Beer.find(params[:beer_id])
+  if current_user == nil
+    redirect "/users/login"
+  end
   unless current_user.beers.include? beer
     logger.info "the beer is not in the users favourite list"
     current_user.beers << beer

@@ -1,25 +1,30 @@
-<div class="container">
-
+<div class="container cf">
+  <h2>Hey We Found "<%= @total_results %>" Beers </h2>
   <% @draft_beer.each do |beer| %>
-  <div class="beer">
-    <img class="beer-image" src="<%= beer.image %>">
-    <h2><%= beer.title %></h2>
+    <div class="beer cf">
+      <% if beer.image != "" %>
+        <img class="beer-image" src="<%= beer.image %>">
+      <% else %>
+        <div class="beer-image-none"></div>
+      <% end %>
+      <h3 class="beer-title"><%= beer.title %></h3>
 
-    <div class="beer-meta">
-      <span class="beer-abv"><strong>abv: </strong><%= beer.abv %>% </span>
-      <span class="beer-ibu"><strong>Ibus: </strong> <%= beer.ibu %></span>
+      <div class="beer-meta">
+        <span class="beer-abv"><strong>abv: </strong><%= beer.abv %>% </span>
+        <span class="beer-ibu"><strong>Ibus: </strong> <%= beer.ibu %></span>
+      </div>
+
+      <div class="beer-description">
+        <p><%= beer.description %></p>
+      </div>
+
+      <form id="beer-save" action="/beers" method="post" >
+        <input type="hidden" name="beer_id" value="<%= beer.id %>" >
+        <input class="button" type="submit" value="Save to My Beers" >
+      </form>
+
     </div>
+  <% end %>
 
-    <div class="beer-description">
-      <p><%= beer.description %></p>
-    </div>
-
-    <form id="beer-save" action="/beers" method="post" >
-      <input type="hidden" name="beer_id" value="<%= beer.id %>" >
-      <input class="button" type="submit" value="Save to My Beers" >
-    </form>
-    <p><em>This is a <strong><%= @served_from %></strong> beer</em></p>
-    <% end %>
-  <div>
 </div>
 

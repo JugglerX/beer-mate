@@ -2,17 +2,18 @@ class Pour
   require 'httparty'
 
   class << self
-    attr_accessor :served_from
+    attr_accessor :served_from, :total_results
   end
 
   def self.lookup(query)
     query_removed_spaces = query.gsub(" ", "%20")
     response = HTTParty.get("http://api.brewerydb.com/v2/search?q=#{query_removed_spaces}&type=beer&key=36740918b2332efb1b7dd18ed5adc58f")
-
-    @parsed = JSON.parse(response.body)
+    @parsed = response
+    # @parsed = JSON.parse(response.body)
   end
 
   def self.brew
+    @total_results = @parsed["totalResults"]
     beers = @parsed["data"]
     # p beers
 
@@ -28,7 +29,7 @@ class Pour
       if beer.has_key?("labels")
         beer_image = beer["labels"]["medium"]
       else
-        beer_image = "whatever"
+        beer_image = ""
       end
       p beer_image
       @beer_array << Beer.create(

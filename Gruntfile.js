@@ -12,6 +12,14 @@ module.exports = function(grunt) {
         options: {
           livereload: true,
         },
+      },
+      erbfiles: {
+        files: [
+          '**/*.erb'
+        ],
+        options: {
+          livereload: true,
+        }
       }
     },
     less: {
@@ -23,7 +31,7 @@ module.exports = function(grunt) {
           'public/css/style.css': 'public/css/style.less'
         }
       }
-    }
+    },
   });
 
   // Load the Grunt plugins.
