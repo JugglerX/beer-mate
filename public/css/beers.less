@@ -1,44 +1,90 @@
 /* Beer Search & Result */
 .beer {
-  width: 220px;
+  width: 198px;
   float: left;
   margin-right: 20px;
-  min-height: 340px;
+  margin-bottom: 20px;
+  min-height: 300px;
   text-align: center;
+  padding: 0;
+  padding: 20px 10px 20px 10px;
+  background: #FFF;
+  border: 1px solid #CCC;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+  background: url("../images/concrete_seamless.png") repeat;
   .beer-description {
     display: none;
+    p {
+      font-size: 14px;
+      line-height: 23px;
+      color: #666;
+    }
+  }
+  .beer-found {
+    font-family: Merriweather;
+    font-size: 32px;
+    font-weight: 200;
+    margin-bottom: 20px;
+  }
+  .beer-image {
+    width: 100px;
+    border-radius: 50px;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  .beer-title-large {
+    font-family: Merriweather;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 5px;
+  }
+  .beer-title-large a {
+    color: #333;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .beer-image-none {
+    width: 100px;
+    border-radius: 50px;
+    background: #FFF;
+    height: 100px;
+    display: inline-block;
+  }
+  .beer-meta {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 14px;
+    font-weight: 400;
+  }
+  /* Teaser View */
+  &.teaser {
+    width: auto;
+    float: none;
+    background: none;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+    .beer-image {
+      width: 300px;
+      border-radius: 0;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    .beer-title {
+      font-size: 46px;
+      margin: 0;
+    }
+    .beer-description {
+      display: block;
+    }
   }
 }
-.beer-image {
-  width: 100px;
-  border-radius: 50px;
-}
-.beer-title {
-  font-family: Merriweather;
-  font-size: 22px;
-  font-weight: 400;
-  margin-bottom: 5px;
-}
 
-.beer-image-none {
-  width: 100px;
-  border-radius: 50px;
-  background: #EAEAEA;
-  height: 100px;
-  display: inline-block;
-}
-.beer-meta {
-  font-size: 16px;
-  color: #666;
-  margin-bottom: 14px;
-  font-weight: 400;
-}
 
-.beer-description p {
-  font-size: 14px;
-  line-height: 23px;
-  color: #666;
-}
 
 
 /* My Beers List */

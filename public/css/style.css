@@ -1,42 +1,88 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Merriweather:400,300,700|Roboto+Slab:400,300,100);
 /* Beer Search & Result */
 .beer {
-  width: 220px;
+  width: 198px;
   float: left;
   margin-right: 20px;
-  min-height: 340px;
+  margin-bottom: 20px;
+  min-height: 300px;
   text-align: center;
+  padding: 0;
+  padding: 20px 10px 20px 10px;
+  background: #FFF;
+  border: 1px solid #CCC;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+  background: url("../images/concrete_seamless.png") repeat;
+  /* Teaser View */
 }
 .beer .beer-description {
   display: none;
 }
-.beer-image {
+.beer .beer-description p {
+  font-size: 14px;
+  line-height: 23px;
+  color: #666;
+}
+.beer .beer-found {
+  font-family: Merriweather;
+  font-size: 32px;
+  font-weight: 200;
+  margin-bottom: 20px;
+}
+.beer .beer-image {
   width: 100px;
   border-radius: 50px;
 }
-.beer-title {
+.beer .beer-image:hover {
+  opacity: 0.7;
+}
+.beer .beer-title-large {
   font-family: Merriweather;
   font-size: 22px;
   font-weight: 400;
   margin-bottom: 5px;
 }
-.beer-image-none {
+.beer .beer-title-large a {
+  color: #333;
+  text-decoration: none;
+}
+.beer .beer-title-large a:hover {
+  text-decoration: underline;
+}
+.beer .beer-image-none {
   width: 100px;
   border-radius: 50px;
-  background: #EAEAEA;
+  background: #FFF;
   height: 100px;
   display: inline-block;
 }
-.beer-meta {
+.beer .beer-meta {
   font-size: 16px;
   color: #666;
   margin-bottom: 14px;
   font-weight: 400;
 }
-.beer-description p {
-  font-size: 14px;
-  line-height: 23px;
-  color: #666;
+.beer.teaser {
+  width: auto;
+  float: none;
+  background: none;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+}
+.beer.teaser .beer-image {
+  width: 300px;
+  border-radius: 0;
+}
+.beer.teaser .beer-image:hover {
+  opacity: 1;
+}
+.beer.teaser .beer-title {
+  font-size: 46px;
+  margin: 0;
+}
+.beer.teaser .beer-description {
+  display: block;
 }
 /* My Beers List */
 .my-beers td {
@@ -91,4 +137,121 @@ body {
 }
 .header {
   background: #ffcc00;
+}
+body {
+  font-size: 14px;
+  font-family: "Open Sans", arial;
+}
+.container {
+  text-align: left;
+  width: 960px;
+  margin: 0 auto;
+}
+.container.center {
+  width: 500px;
+  padding: 0px 20px 20px 20px;
+  margin: 0 auto;
+  text-align: center;
+}
+h1 {
+  font-weight: 400;
+}
+h2 {
+  font-weight: 400;
+  font-size: 36px;
+  margin: 0 0 10px 0;
+}
+a {
+  color: #FFCC00;
+}
+/* Login */
+#login_form input {
+  display: block;
+  margin-bottom: 16px;
+}
+#login_form label {
+  font-size: 16px;
+  line-height: 24px;
+}
+input {
+  padding: 10px;
+  width: 200px;
+}
+/* Homepage */
+.shoutout {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 60px;
+}
+.shoutout h1 {
+  font-size: 50px;
+  line-height: 56px;
+  font-weight: 100;
+  color: #666;
+  font-family: "Roboto Slab";
+}
+.shoutout span {
+  font-size: 20px;
+  line-height: 26px;
+  display: inline;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+.shoutout img {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  display: inline;
+  vertical-align: middle;
+}
+.inline-form {
+  display: inline-block;
+}
+.active {
+  background: #efefef;
+}
+.gallery img {
+  width: 300px;
+  float: left;
+  margin-left: 10px;
+}
+label {
+  display: block;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+.block {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.hint {
+  margin-top: 20px;
+  font-style: italic;
+  font-size: 12px;
+  color: #666;
+}
+hr {
+  border-right: 50% solid red;
+  border-left: 50% solid blue;
+}
+div.gradient {
+  height: 10px;
+  background: #ff2100;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #ff2100 0%, #ffe900 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #ff2100), color-stop(100%, #ffe900));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, #ff2100 0%, #ffe900 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, #ff2100 0%, #ffe900 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, #ff2100 0%, #ffe900 100%);
+  /* IE10+ */
+  background: linear-gradient(to right, #ff2100 0%, #ffe900 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2100', endColorstr='#ffe900', GradientType=1);
+  /* IE6-9 */
 }

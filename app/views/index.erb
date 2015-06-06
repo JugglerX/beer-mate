@@ -1,4 +1,35 @@
-<div class="container">
+<div class="container cf">
+  <h2 class="beer-found">Holy Shit, we found <strong>"<%= @total_results %>"</strong> Beers </h2>
+  <% @draft_beer.each do |beer| %>
+    <div class="beer cf">
+      <% if beer.image != "" %>
+        <a href="/beers/<%= beer.id %>"><img class="beer-image" src="<%= beer.image %>"></a>
+      <% else %>
+        <div class="beer-image-none"></div>
+      <% end %>
+      <div class="beer-inner">
+        <h3 class="beer-title-large"><a href="/beers/<%= beer.id %>"><%= beer.title %></a></h3>
+
+        <div class="beer-meta">
+          <span class="beer-abv"><strong>abv: </strong><%= beer.abv %>% </span>
+          <span class="beer-ibu"><strong>Ibus: </strong> <%= beer.ibu %></span>
+        </div>
+
+        <div class="beer-description">
+          <p><%= beer.description %></p>
+        </div>
+
+        <form id="beer-save" action="/beers" method="post" >
+          <input type="hidden" name="beer_id" value="<%= beer.id %>" >
+          <input class="button" type="submit" value="Save to My Beers" >
+        </form>
+
+      </div>
+    </div>
+  <% end %>
+
+</div>
+
  <div class="shoutout">
   <h1>“Milk is for babies. When you grow up you have to drink beer.”
   </h1>
@@ -7,10 +38,3 @@
 
   <div class="hint"><strong>Hint:</strong> If you don't know your beers Arnie recommends the following searches: "Lagunitas IPA", "Sculpin IPA", "Heineken Lager" - currently the search is very strict and only returns exact matches.</div>
 </div>
-</div>
-
-
-
-<div class="gradient"></div>
-
-

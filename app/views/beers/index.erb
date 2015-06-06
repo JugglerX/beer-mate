@@ -30,7 +30,7 @@
       <% end %>
 
         <tr id="beer-id-<%= beer.id %>" class="<%= @active %>">
-          <td class="beer-title"><%= beer.title %></td>
+          <td class="beer-title"><a href="/beers/<%= beer.id %>"><%= beer.title %></a></td>
           <td class="beer-abv"><%= beer.abv %>%</td>
           <td class="beer-ibu"><%= beer.ibu %></td>
           <td class="beer-rating-user">

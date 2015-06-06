@@ -2,7 +2,7 @@ class Beer  < ActiveRecord::Base
 
   has_many :drinkers
   has_many :ratings
-  has_many :users, through: :drinkers
+  has_many :users, through: :drinkersbeer
 
   belongs_to :breweries
 

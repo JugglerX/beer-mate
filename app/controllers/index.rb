@@ -5,6 +5,15 @@ end
 enable :sessions, :logging
 
 get '/' do
+
+  beers = Beer.all
+  @draft_beer = []
+  beers.each do |beer|
+    if beer.ratings.where(rating: 5) == true
+      @draft_beer << beer
+    end
+  end
+  p @draft_beer
   erb :index
 end
 

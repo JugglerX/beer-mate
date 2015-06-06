@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="beer cf teaser">
+
+    <% if @beer.image != "" %>
+      <img class="beer-image" src="<%= @beer.image %>">
+    <% else %>
+      <div class="beer-image-none"></div>
+    <% end %>
+
+    <div class="beer-inner">
+      <h1 class="beer-title"><%= @beer.title %></h1>
+
+      <div class="beer-meta">
+        <span class="beer-abv"><strong>abv: </strong><%= @beer.abv %>% </span>
+        <span class="beer-ibu"><strong>Ibus: </strong> <%= @beer.ibu %></span>
+      </div>
+
+      <div class="beer-description">
+        <p><%= @beer.description %></p>
+      </div>
+
+      <form id="beer-save" action="/beers" method="post" >
+        <input type="hidden" name="beer_id" value="<%= @beer.id %>" >
+        <input class="button" type="submit" value="Save to My Beers" >
+      </form>
+
+    </div>
+  </div>
+</div>
