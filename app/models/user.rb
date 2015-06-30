@@ -10,9 +10,6 @@ class User  < ActiveRecord::Base
 
   has_many :ratings
 
-
-  # validates :username, presence: true
-
   def password
     @password ||= Password.new(password_hash)
   end

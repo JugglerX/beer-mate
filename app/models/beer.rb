@@ -7,9 +7,6 @@ class Beer  < ActiveRecord::Base
   belongs_to :breweries
 
   def rate_beer
-    puts "*************************************"
-    puts "ghetto rating system"
-    puts "*************************************"
 
     beer = Beer.find(self.id)
 
@@ -34,7 +31,4 @@ class Beer  < ActiveRecord::Base
     beer.ratings.count()
   end
 
-  # def image=(new_image)
-  #   self.image ||= "/images/arnie.png"
-  # end
 end
