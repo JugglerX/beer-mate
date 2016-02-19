@@ -1,6 +1,8 @@
 # Beer Mate
 
-I wanted to create a simple app that looked up some kind of beer database and allowed me to store beers and rate them. I wanted to make sure I implemented all key curriculum from the week
+I wanted to create a simple app that looked up some kind of beer database and allowed me to store beers and rate them. 
+
+http://secure-castle-17457.herokuapp.com/
 
 ## Connects to the Brewery DB API to lookup beers
 
@@ -45,5 +47,5 @@ Store Beers as objects in the database
 - Semantic markup.
 - Seperation of CSS files by component.
 - Global classes for reusable messages and buttons.
-- Installed Grunt to watch and compile .less files, because I love LESS.
+- Installed Grunt to watch and compile.
 
